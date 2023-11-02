@@ -12,6 +12,7 @@ app.use(cors({ optionsSuccessStatus: 200 })); // some legacy browsers choke on 2
 
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static("public"));
+// app.use('./netlify/functions/api', router);
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/", function (req, res) {
@@ -28,7 +29,7 @@ app.get("/api/hello", function (req, res) {
 //   res.json({ unix: resDate.valueOf(), utc: resDate.toUTCString() });
 // });
 
-app.get("/api/:date?", (req, res) => {
+app.get("/api/:date?", function (req, res) {
   let input = req.params.date;
 
   /*1.create variable for checking :  
@@ -72,7 +73,7 @@ app.get("/api/:date?", (req, res) => {
   }
 });
 
-app.get("/api/timestamp/", (req, res) => {
+app.get("/api/timestamp/", function (req, res) {
   var resDate = new Date();
   res.json({ unix: resDate.valueOf(), utc: resDate.toUTCString() });
 });
