@@ -4,7 +4,7 @@
   "description": "An FCC Backend Challenge",
   "main": "index.js",
   "scripts": {
-    "start": "node index.jsx",
+    "start": "node index.js",
     "build": "netlify deploy --prod"
   },
   "dependencies": {
